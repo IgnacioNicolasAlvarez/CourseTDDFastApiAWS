@@ -22,17 +22,17 @@ jobs:
       - name: Check directory contents
         run: ls -la services/talk_booking
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --no-root
         working-directory: services/talk_booking
       - name: Run black
         run: poetry run black . --check -v
-        working-directory: services/talk_booking
+        working-directory: services/
       - name: Run isort
         run: poetry run isort . --check-only --profile black -v
-        working-directory: services/talk_booking
+        working-directory: services/
       - name: Run flake8
         run: poetry run flake8 . -v
-        working-directory: services/talk_booking
+        working-directory: services/
       - name: Run bandit
         run: poetry run bandit . -v
-        working-directory: services/talk_booking
+        working-directory: services/
