@@ -34,5 +34,5 @@ jobs:
         run: poetry run flake8 . -v --config $(pwd)/pyproject.toml
         working-directory: services/talk_booking
       - name: Run bandit
-        run: poetry run bandit . -v --configfile $(pwd)/.bandit
+        run: poetry run bandit . -v -r -c $(pwd)/bandit.yml
         working-directory: services/talk_booking
