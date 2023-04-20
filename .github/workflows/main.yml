@@ -25,14 +25,14 @@ jobs:
         run: poetry install --no-root
         working-directory: services/talk_booking
       - name: Run black
-        run: poetry run black . --check -v --config services/talk_booking/pyproject.toml
+        run: poetry run black . --check -v --config $(pwd)/pyproject.toml
         working-directory: services/talk_booking
       - name: Run isort
-        run: poetry run isort . --check-only --profile black -v --settings-path services/talk_booking/pyproject.toml
+        run: poetry run isort . --check-only --profile black -v --settings-path $(pwd)/pyproject.toml
         working-directory: services/talk_booking
       - name: Run flake8
-        run: poetry run flake8 . -v --config services/talk_booking/pyproject.toml
+        run: poetry run flake8 . -v --config $(pwd)/pyproject.toml
         working-directory: services/talk_booking
       - name: Run bandit
-        run: poetry run bandit . -v --configfile services/talk_booking/pyproject.toml
+        run: poetry run bandit . -v --configfile $(pwd)/pyproject.toml
         working-directory: services/talk_booking
