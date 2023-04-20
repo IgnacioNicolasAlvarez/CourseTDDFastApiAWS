@@ -24,10 +24,10 @@ jobs:
       - name: Install dependencies
         run: cd services/talk_booking && poetry install
       - name: Run black
-        run: poetry run black . --check -v
+        run: cd services/talk_booking && poetry run black . --check -v
       - name: Run isort
-        run: poetry run isort . --check-only --profile black -v
+        run: cd services/talk_booking &&  poetry run isort . --check-only --profile black -v
       - name: Run flake8
-        run: poetry run flake8 . -v
+        run:  cd services/talk_booking && poetry run flake8 . -v
       - name: Run bandit
-        run: poetry run bandit . -v
+        run:  cd services/talk_booking && poetry run bandit . -v
