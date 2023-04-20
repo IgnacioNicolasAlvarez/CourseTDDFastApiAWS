@@ -10,6 +10,9 @@ jobs:
         poetry-version: ['1.4.2']
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: services/talk_booking
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
@@ -21,16 +24,11 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install dependencies
         run: poetry install
-        working-directory: services/talk_booking
       - name: Run black
         run: poetry run black . --check
-        working-directory: services/talk_booking
       - name: Run isort
         run: poetry run isort . --check-only --profile black
-        working-directory: services/talk_booking
       - name: Run flake8
         run: poetry run flake8 .
-        working-directory: services/talk_booking
       - name: Run bandit
         run: poetry run bandit .
-        working-directory: services/talk_booking
