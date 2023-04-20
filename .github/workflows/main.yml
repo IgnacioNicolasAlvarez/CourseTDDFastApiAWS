@@ -24,8 +24,6 @@ jobs:
       - name: Install dependencies
         run: poetry install
         working-directory: services/talk_booking
-      - name: Change to talk_booking directory
-        run: cd services/talk_booking
       - name: Run black
         run: poetry run black . --check -v
         working-directory: services/talk_booking
