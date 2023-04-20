@@ -22,8 +22,7 @@ jobs:
       - name: Check directory contents
         run: ls -la services/talk_booking
       - name: Install dependencies
-        run: poetry install
-        working-directory: services/talk_booking
+        run: cd services/talk_booking && poetry install
       - name: Run black
         run: poetry run black . --check -v
       - name: Run isort
