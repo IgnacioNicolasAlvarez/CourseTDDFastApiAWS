@@ -19,6 +19,8 @@ jobs:
         uses: abatilo/actions-poetry@v2.1.4
         with:
           poetry-version: ${{ matrix.poetry-version }}
+      - name: Check directory contents
+        run: ls -la services/talk_booking
       - name: Install dependencies
         run: poetry install
         working-directory: services/talk_booking
